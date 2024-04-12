@@ -13,12 +13,13 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function WeatherNavbar() {
+const Navbar = () => {
   return (
     <div
-      className="bg-cover bg-center h-40 relative"
+      className="bg-center h-40 w-auto"
       style={{
         backgroundImage: `url('https://images.unsplash.com/photo-1593872028037-6dff5327260e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')`,
+        backgroundSize: "100% auto",
       }}
     >
       <Disclosure as="nav" className="p-7">
@@ -57,9 +58,15 @@ export default function WeatherNavbar() {
                   <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                     <span className="sr-only">Open main menu</span>
                     {open ? (
-                      <XIcon className="block h-6 w-6" aria-hidden="true" />
+                      <XIcon
+                        className="block h-6 w-6 text-blue-500"
+                        aria-hidden="true"
+                      />
                     ) : (
-                      <MenuIcon className="block h-6 w-6" aria-hidden="true" />
+                      <MenuIcon
+                        className="block h-6 w-6 text-blue-500"
+                        aria-hidden="true"
+                      />
                     )}
                   </Disclosure.Button>
                 </div>
@@ -90,3 +97,5 @@ export default function WeatherNavbar() {
     </div>
   );
 }
+
+export default Navbar;
